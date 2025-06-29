@@ -1,8 +1,8 @@
 # Node modules
-client/node_modules
-server/node_modules
+client/node_modules/
+server/node_modules/
 
-# Env files
+# Environment files
 .env
 client/.env
 server/.env
@@ -10,6 +10,10 @@ server/.env
 # Build output
 dist/
 build/
+client/dist/
+server/dist/
+client/build/
+server/build/
 
 # System files
 .DS_Store
@@ -17,3 +21,11 @@ Thumbs.db
 
 # Logs
 *.log
+npm-debug.log*
+
+# IDE/editor configs
+.vscode/
+.idea/
+
+# Test coverage
+coverage/
