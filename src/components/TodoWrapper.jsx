@@ -1,7 +1,7 @@
 // src/components/TodoWrapper.jsx
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import { Todo } from "./Todo";
+import Todo from "./Todo";
 import "./todoapp.css"
 import { TodoForm } from "./TodoForm";
 import { EditTodoForm } from "./EditTodoForm";
