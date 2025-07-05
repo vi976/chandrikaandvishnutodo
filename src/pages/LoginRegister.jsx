@@ -19,6 +19,7 @@ function LoginRegister({ setToken }) {
       setToken(res.data.token);
       navigate("/");
     } catch (err) {
+      console.error("Login failed:", err.response?.data || err.message);
       alert(err?.response?.data?.message || "Login failed");
     }
   };
@@ -26,10 +27,11 @@ function LoginRegister({ setToken }) {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await API.post("/auth/register", registerData);
+      const res = await API.post("/auth/register", registerData);
       alert("Registration successful! Please login.");
       setIsActive(false);
     } catch (err) {
+      console.error("Register failed:", err.response?.data || err.message);
       alert(err?.response?.data?.message || "Registration failed");
     }
   };
@@ -62,7 +64,7 @@ function LoginRegister({ setToken }) {
       {/* Login */}
       <div className="form-container sign-in">
         <form onSubmit={handleLogin}>
-          <h1 >Sign In</h1>
+          <h1>Sign In</h1>
           <span className="gap">Use your name and password</span>
           <input
             type="text"

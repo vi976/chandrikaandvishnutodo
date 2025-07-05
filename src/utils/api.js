@@ -1,8 +1,7 @@
-// src/utils/api.js
 import axios from 'axios';
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api", // Ensure backend runs on port 5000
+  baseURL: "https://mern-to-do-w3ru.onrender.com/api", // ✅ Use your deployed backend
 });
 
 API.interceptors.request.use((req) => {
