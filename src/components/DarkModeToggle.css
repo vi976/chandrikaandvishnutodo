@@ -1,0 +1,64 @@
+.dark-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin: 1rem;
+  font-size: 1.4rem;
+}
+
+/* Icons and label */
+.icon {
+  font-size: 1.5rem;
+}
+
+.label-text {
+  font-size: 1.2rem;
+}
+
+/* Switch style */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 4rem;
+  height: 2rem;
+  background-color: rgba(0, 0, 0, 0.25);
+  border-radius: 2rem;
+  transition: all 0.3s linear;
+}
+
+.switch::after {
+  content: "";
+  position: absolute;
+  top: 0.1rem;
+  left: 0.1rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  border-radius: 50%;
+  background-color: #fff;
+  transition: all 0.3s linear;
+}
+
+input[type="checkbox"]:checked + .switch::after {
+  translate: 2rem 0;
+}
+
+input[type="checkbox"]:checked + .switch {
+  background-color: #7983ff;
+}
+
+input[type="checkbox"] {
+  display: none;
+}
+@media (max-width:420px){
+  .dark-toggle{
+    position: relative;
+    top: 630px;
+    left: 120px;
+    transform: translateX(-50%);
+   
+  }
+  .label-text {
+    font-size:small;
+}
+  
+}

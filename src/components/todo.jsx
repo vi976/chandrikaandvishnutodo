@@ -1,16 +1,28 @@
-import React from 'react';
+// src/components/Todo.jsx
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
 
-const Todo = ({ todo, onDelete, onToggle }) => {
+export const Todo = ({ task, deleteTodo, editTodo, toggleComplete }) => {
   return (
-    <div style={{
-      textDecoration: todo.completed ? 'line-through' : 'none',
-      marginBottom: '10px',
-    }}>
-      <span>{todo.text}</span>
-      <button onClick={() => onToggle(todo._id)} style={{ marginLeft: '10px' }}>✔️</button>
-      <button onClick={() => onDelete(todo._id)} style={{ marginLeft: '5px' }}>❌</button>
+    <div className="Todo">
+      <p
+        className={task.completed ? "completed" : ""}
+        onClick={() => toggleComplete(task._id)}
+      >
+        {task.text}
+      </p>
+      <div>
+        <FontAwesomeIcon
+          icon={faPenToSquare}
+          className="edit-icon"
+          onClick={() => editTodo(task._id)}
+        />
+        <FontAwesomeIcon
+          icon={faTrash}
+          className="delete-icon"
+          onClick={() => deleteTodo(task._id)}
+        />
+      </div>
     </div>
   );
 };
-
-export default Todo;
