@@ -1,5 +1,4 @@
-// src/pages/LoginRegister.jsx
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "./LoginRegister.css";
 import { useNavigate } from "react-router-dom";
 import API from "../utils/api";
@@ -9,6 +8,10 @@ function LoginRegister({ setToken }) {
   const [loginData, setLoginData] = useState({ username: "", password: "" });
   const [registerData, setRegisterData] = useState({ username: "", password: "" });
   const navigate = useNavigate();
+
+  useEffect(() => {
+    document.body.className = "login-page";
+  }, []);
 
   const handleLogin = async (e) => {
     e.preventDefault();

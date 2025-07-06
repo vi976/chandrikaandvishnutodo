@@ -1,8 +1,7 @@
-// src/components/TodoWrapper.jsx
 import { useEffect, useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { Todo } from "./Todo";
-import "./todoapp.css"
+import "./todoapp.css";
 import { TodoForm } from "./TodoForm";
 import { EditTodoForm } from "./EditTodoForm";
 import DarkModeToggle from "./DarkModeToggle";
@@ -10,6 +9,11 @@ import API from "../utils/api";
 
 export const TodoWrapper = () => {
   const [todos, setTodos] = useState([]);
+
+  useEffect(() => {
+    document.body.className = "todo-page"; //  Add this
+    fetchTodos();
+  }, []);
 
   const fetchTodos = async () => {
     try {
@@ -20,10 +24,6 @@ export const TodoWrapper = () => {
       alert("Please login again.");
     }
   };
-
-  useEffect(() => {
-    fetchTodos();
-  }, []);
 
   const addTodo = async (text) => {
     try {
@@ -81,12 +81,14 @@ export const TodoWrapper = () => {
   };
 
   return (
-  <div className="TodoWrapper">
-    <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }} className="centerrr">
-      <h2>📝 Todo List</h2>
-      <DarkModeToggle />
-    </div>
-      <p>Welcome, {localStorage.getItem("username")}!</p>
+    <div>
+      <div className="cen">
+      <h2 className="heading">📝 Todo List</h2>
+      </div>
+      <div className="centerrr">
+        <DarkModeToggle />
+      </div>
+      <p className="wel">Welcome, {localStorage.getItem("username")}!</p>
       <div className="logout-wrapper">
         <button onClick={logout} className="back">Logout</button>
       </div>

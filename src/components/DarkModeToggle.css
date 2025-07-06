@@ -4,7 +4,12 @@
   gap: 0.75rem;
   margin: 1rem;
   font-size: 1.4rem;
+  z-index: 10;
+  top: 5%;
+  right: 4%;
+  position: absolute;
 }
+
 
 /* Icons and label */
 .icon {
@@ -25,6 +30,10 @@
   border-radius: 2rem;
   transition: all 0.3s linear;
 }
+.switch:hover {
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
 
 .switch::after {
   content: "";
@@ -49,16 +58,24 @@ input[type="checkbox"]:checked + .switch {
 input[type="checkbox"] {
   display: none;
 }
-@media (max-width:420px){
+@media (max-width:600px){
   .dark-toggle{
-    position: relative;
-    top: 630px;
-    left: 120px;
-    transform: translateX(-50%);
+      position: relative;
+      
    
+  }
+  .centerrr{
+    position: absolute;
+    left: 47%;
+    top: 85%;
   }
   .label-text {
     font-size:small;
 }
+  /* .dark-toggle > h2{
+    left: 32%;
+    position: absolute;
+    top: 7%;
+  } */
   
 }
