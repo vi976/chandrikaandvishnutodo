@@ -158,6 +158,14 @@
 .todo-page.darkmode .delete-icon {
   color: white;
 }
+ .todo-page.darkmode .task-list::-webkit-scrollbar-thumb {
+  background-color: #303031;
+  }
+.todo-page.darkmode .logout-btn {
+  background-color: #222123;
+  color: white;
+  border: 1px solid #fff;
+}
 
 /* === Responsive (≤ 600px only) === */
 @media (max-width: 600px) {
@@ -213,4 +221,5 @@
     width: 100%;
     margin: 1rem 0;
   }
+  
 }

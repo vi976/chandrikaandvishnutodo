@@ -58,6 +58,7 @@ input[type="checkbox"]:checked + .switch {
 input[type="checkbox"] {
   display: none;
 }
+
 @media (max-width:600px){
   .dark-toggle{
       position: relative;
