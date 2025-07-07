@@ -216,3 +216,58 @@
     margin:3px 0px;
     color: #000;
 }
+@media (max-width: 600px) {
+  .container {
+    width: 90vw;
+    min-height: 600px;
+    border-radius: 20px;
+    padding: 10px;
+  }
+
+  .form-container,
+  .sign-in,
+  .sign-up {
+    width: 100%;
+    position: relative;
+    transform: translateX(0) !important;
+    opacity: 1 !important;
+    z-index: 2 !important;
+  }
+
+  .container.active .sign-in,
+  .container.active .sign-up {
+    transform: translateX(0) !important;
+  }
+
+  .toggle-container {
+    display: none;
+  }
+
+  .form-container form {
+    padding: 0 20px;
+  }
+
+  .container button {
+    width: 100%;
+    padding: 12px;
+  }
+
+  .container input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .form-container h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+  .mag{
+    margin-top: 10px;
+  }
+
+  .gap {
+    font-size: 12px;
+    margin: 8px 0;
+    text-align: center;
+  }
+}

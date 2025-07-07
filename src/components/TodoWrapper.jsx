@@ -11,7 +11,7 @@ export const TodoWrapper = () => {
   const [todos, setTodos] = useState([]);
 
   useEffect(() => {
-    document.body.className = "todo-page"; //  Add this
+    document.body.className = "todo-page";
     fetchTodos();
   }, []);
 
@@ -81,33 +81,34 @@ export const TodoWrapper = () => {
   };
 
   return (
-    <div>
-      <div className="cen">
-      <h2 className="heading">📝 Todo List</h2>
-      </div>
-      <div className="centerrr">
-        <DarkModeToggle />
-      </div>
-      <p className="wel">Welcome, {localStorage.getItem("username")}!</p>
-      <div className="logout-wrapper">
-        <button onClick={logout} className="back">Logout</button>
+    <div className="todo-container">
+      <div className="todo-header">
+        <div className="top-bar">
+          <h2 className="heading">📝 Todo List</h2>
+          <div className="right-controls">
+            <DarkModeToggle />
+            <button onClick={logout} className="logout-btn">Logout</button>
+          </div>
+        </div>
+        <p className="wel">Welcome, {localStorage.getItem("username")}!</p>
+        <TodoForm addTodo={addTodo} />
       </div>
 
-      <TodoForm addTodo={addTodo} />
-
-      {todos.map((todo) =>
-        todo.isEditing ? (
-          <EditTodoForm key={todo._id} editTodo={editTask} task={todo} />
-        ) : (
-          <Todo
-            key={todo._id}
-            task={todo}
-            deleteTodo={deleteTodo}
-            editTodo={editTodo}
-            toggleComplete={toggleComplete}
-          />
-        )
-      )}
+      <div className="task-list">
+        {todos.map((todo) =>
+          todo.isEditing ? (
+            <EditTodoForm key={todo._id} editTodo={editTask} task={todo} />
+          ) : (
+            <Todo
+              key={todo._id}
+              task={todo}
+              deleteTodo={deleteTodo}
+              editTodo={editTodo}
+              toggleComplete={toggleComplete}
+            />
+          )
+        )}
+      </div>
     </div>
   );
 };

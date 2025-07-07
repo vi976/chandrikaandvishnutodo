@@ -67,7 +67,7 @@ function LoginRegister({ setToken }) {
       {/* Login */}
       <div className="form-container sign-in">
         <form onSubmit={handleLogin}>
-          <h1>Sign In</h1>
+          <h1 className="mag">Sign In</h1>
           <span className="gap">Use your name and password</span>
           <input
             type="text"

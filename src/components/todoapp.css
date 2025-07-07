@@ -11,43 +11,53 @@
 .todo-page {
   background: #1A1A40;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-.wel{
-    position: absolute;
-    top: 23%;
-    left: 4%;
-    font-weight: 800;
-}
-
-.App {
-  text-align: center;
-}
-
-h1 {
-  color: #fff;
-  margin-bottom: 0.5rem;
-  font-size: 1.75rem;
-}
-
-.TodoWrapper {
-  background: #1A1A40;
-  padding: 2rem;
-  border-radius: 5px;
-  height: 100vh;
-  width: 100vw;
+  flex-direction: column;
+  min-height: 100vh;
+  padding: 2rem 1rem;
   position: relative;
-  top: 60%;
 }
 
+/* === Top Area === */
+.logout-wrapper {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1000;
+}
+
+.logout-btn {
+  background-color: #8758ff;
+  border: none;
+  color: white;
+  border-radius: 6px;
+  padding: 8px 16px;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0;
+  outline: none;
+}
+
+.heading {
+  text-align: center;
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-top: 0;
+  margin-bottom: 1rem;
+}
+
+/* Welcome Message */
+.wel {
+  margin-left: 10px;
+  margin-top: 60px;
+  font-weight: 800;
+  font-size: 1rem;
+}
+
+/* === Form === */
 .TodoForm {
-    width: 100vw;
-    margin-bottom: 1rem;
-    position: relative;
-    margin-top: -8%;
-    left: 4%;
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
 }
 
 .todo-input {
@@ -55,10 +65,10 @@ h1 {
   background: none;
   border: 1px solid #8758ff;
   padding: 0.5rem 1rem;
-  margin-top: 1rem;
-  margin-bottom: 2rem;
-  width: 300px;
+  width: 60%;
+  max-width: 500px;
   color: #fff;
+  margin-right: 0.5rem;
 }
 
 .todo-input::placeholder {
@@ -69,32 +79,41 @@ h1 {
   background: #8758ff;
   color: #fff;
   border: none;
-  padding: 0.55rem;
+  padding: 0.55rem 1rem;
   cursor: pointer;
 }
 
-.Todo {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #8758ff;
-    color: #fff;
-    padding: 0.75rem 1rem;
-    border-radius: 5px;
-    margin-bottom: 1rem;
-    position: relative;
-    margin-top: -2%;
-    left: 3.6%;
-    width: 95%;
+/* === Task List === */
+.task-list {
+  max-height: 60vh;
+  overflow-y: auto;
+  margin-top: 1rem;
+  padding-right: 5px;
+  width: 100%;
 }
 
+/* Scrollbar */
+.task-list::-webkit-scrollbar {
+  width: 6px;
+}
+.task-list::-webkit-scrollbar-thumb {
+  background-color: #8758ff;
+  border-radius: 3px;
+}
 
-.fa-trash {
-  margin-left: 0.75rem;
+/* === Individual Task === */
+.Todo {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #8758ff;
+  padding: 0.75rem 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  width: 100%;
 }
 
 .incompleted {
-  color: #fff;
   cursor: pointer;
 }
 
@@ -107,52 +126,23 @@ h1 {
 .edit-icon,
 .delete-icon {
   cursor: pointer;
+  margin-left: 0.5rem;
 }
-.back{
-  background-color:#8758ff;
-  border-radius:6px ;
-  border: none;
-  height: 40px;
-  width: 80px;
 
-}
-.back{
-    padding: 10px 20px;
-    margin-top: 10px;
-    cursor: pointer;
-    outline: none;
-    position: absolute;
-    top: 26%;
-    left: 4%;
-}
+/* === Dark Mode === */
 .todo-page.darkmode {
   background: #121212;
-}
-
-.todo-page.darkmode .TodoWrapper {
-  background: #1e1e1e;
 }
 
 .todo-page.darkmode .todo-input {
   border: 1px solid #ffffff;
   background-color: #2c2c2c;
-  color: white;
-  border-right: none;
-}
-
-.todo-page.darkmode .todo-input::placeholder {
-  color: #bbbbbb;
 }
 
 .todo-page.darkmode .todo-btn {
-    background-color: #222123;
-    color: white;
-    border: 1px solid #fff;
-    border-left: none;
-    height: 33.5px;
-    position: relative;
-    /* margin-top: 10%; */
-    top: 1px;
+  background-color: #222123;
+  color: white;
+  border: 1px solid #fff;
 }
 
 .todo-page.darkmode .Todo {
@@ -169,59 +159,58 @@ h1 {
   color: white;
 }
 
-.todo-page.darkmode .back {
-  background-color:  #222123;
-  color: white;
-  
-}
-.todo-page h2{ 
-  position: absolute;
-  top:8%;
-  left: 50%;
-}
-@media (max-width:600px){
-.switch{
-    width: 4rem;
-    height: 1.7rem;
-    
+/* === Responsive (≤ 600px only) === */
+@media (max-width: 600px) {
+  .todo-container {
+    width: 90% !important;
+    margin: 0 auto;
   }
-  .cen{
-    display: flex;
-    justify-content: center;
-  }
-  .switch::after{
-    left: -6px;
-    width: 1.6rem;
-    height: 1.6rem;
-  }
-  .todo-input{
-    width: 60%;
-  }
+
   .logout-wrapper {
-    position: absolute;
-    top: 1rem;
-    right: 1rem;
-    margin: 0;
-    z-index: 1000;
-  }
-   .todo-page  h2{
-    position: absolute;
-    top:8%;
     left: auto;
-    
-  } 
-  .TodoForm{
-    margin-top: -30%;
+    right: 10px;
+    top: 10px;
+    position: absolute;
+    margin: 0;
   }
-  .back{
-    position: relative;
-    left: 4%;
-    top: 30%;
+
+  .wel {
+    position: static;
+    margin-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
   }
-  .centerrr > h2{
-    /* position: fixed; */
-    /* left:34%; */
 
+  .heading {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 3rem;
+  }
 
+  .TodoForm {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    margin-top: 1rem;
+  }
+
+  .todo-input {
+    width: 100%;
+    margin-bottom: 0.5rem;
+  }
+
+  .todo-btn {
+    width: 100%;
+  }
+
+  .task-list {
+    max-height: 50vh;
+    width: 100%;
+  }
+
+  .Todo {
+    width: 100%;
+    margin: 1rem 0;
   }
 }
